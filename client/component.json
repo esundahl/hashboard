@@ -1,0 +1,11 @@
+{
+  "name": "hash",
+  "description": "hash app client component",
+  "dependencies": {},
+  "development": {},
+  "paths": ["lib"],
+  "local": ["boot"],
+  "scripts": [
+    "index.js"
+  ]
+}

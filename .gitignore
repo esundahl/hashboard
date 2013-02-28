@@ -1,1 +1,8 @@
 todo.md
+node_modules
+hash.md
+server/public/app.js
+client/test/runner.html
+client/test/runner.html
+rethinkdb_data/
+hashed.md

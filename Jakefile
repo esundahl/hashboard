@@ -12,7 +12,7 @@ task('default', ['test']);
  * Lint
  */
 
-desc('lint all files');
+desc('Lint all files');
 task("lint", [], function() {
 
   var lint, files, options;
@@ -29,6 +29,20 @@ task("lint", [], function() {
 	};
 
 	lint.validateFileList(files.toArray(), options, {});
+});
+
+
+desc('Automatically builds and serves files during development');
+task('watch', function () {
+
+  jake.exec('watch make -C client', function () {
+    complete();
+  }, { printStdout: false });
+
+  jake.exec('node server/app.js', function () {
+    complete();
+  }, { printStdout: true });
+
 });
 
 

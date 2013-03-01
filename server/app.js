@@ -28,6 +28,10 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+app.configure('test', function() {
+  app.use(express.errorHandler());
+});
+
 app.get('/', routes.index);
 
 http.createServer(app).listen(app.get('port'), function(){

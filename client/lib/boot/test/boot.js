@@ -4,15 +4,13 @@
  * Dependencies
  */
 
+var boot = require('boot');
+
 
 describe('Boot', function(){
 
-  it('should pass', function(){
-    true.should.equal(true)
-  })
-
-  it('should fail', function(){
-    true.should.equal(true)
-  })
+  it('should require a routing component', function () {
+    true.should.equal(true);
+  });
 
 })

@@ -1,7 +1,9 @@
 {
   "name": "boot",
   "description": "boot component",
-  "dependencies": {},
+  "dependencies": {
+    "visionmedia/page.js": "*"
+  },
   "development": {},
   "scripts": [
     "index.js"

@@ -4,7 +4,8 @@
   "dependencies": {
     "component/model": "*",
     "component/emitter": "*",
-    "retrofox/namize": "*"
+    "retrofox/namize": "*",
+    "component/collection": "*"
   },
   "development": {},
   "scripts": [

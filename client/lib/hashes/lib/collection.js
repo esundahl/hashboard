@@ -6,6 +6,7 @@
 
 var Hash = require('./model.js');
 var Emitter = require('emitter');
+var Collection = require('collection');
 
 
 /**
@@ -16,14 +17,15 @@ var Emitter = require('emitter');
  * @api public
  */
 
-function Collection (data) {
-  var models = this.models = {};
+function Hashes (data) {
+  var models = [];
 
   data.forEach(function (item) {
     var hash = new Hash(item);
-    models[hash.hash()] = hash;
+    models.push(hash);
   });
 
+  this.models = new Collection(models);
   return this;
 }
 
@@ -32,11 +34,11 @@ function Collection (data) {
  * Mixins
  */
 
-Emitter(Collection.prototype);
+Emitter(Hashes.prototype);
 
 
 /**
  * Exports
  */
 
-module.exports = Collection;
+module.exports = Hashes;

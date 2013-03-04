@@ -25,7 +25,8 @@ task("lint", [], function() {
 	
 	options = {
 		node: true,
-    strict: false
+    strict: false,
+    laxcomma: true
 	};
 
 	lint.validateFileList(files.toArray(), options, {});

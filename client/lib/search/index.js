@@ -14,7 +14,7 @@
  */
 
 function Search(data) {
-  
+
   return this;
 }
 

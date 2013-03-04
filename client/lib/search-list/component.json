@@ -1,0 +1,13 @@
+{
+  "name": "search list",
+  "description": "list of hashes",
+  "dependencies": {},
+  "development": {},
+  "scripts": [
+    "index.js"
+  ],
+  "local": ["search"],
+  "styles": [
+    "search-list.css"
+  ]
+}

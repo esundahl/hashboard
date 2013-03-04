@@ -1,0 +1,16 @@
+{
+  "name": "hashes",
+  "description": "hash data structure",
+  "dependencies": {
+    "component/model": "*",
+    "component/emitter": "*",
+    "retrofox/namize": "*"
+  },
+  "development": {},
+  "scripts": [
+    "index.js",
+    "lib/model.js",
+    "lib/fake-api.js",
+    "lib/collection.js"
+  ]
+}

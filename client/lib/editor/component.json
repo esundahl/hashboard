@@ -1,0 +1,11 @@
+{
+  "name": "editor",
+  "description": "text editing component using ace",
+  "dependencies": {
+    "component/grow": "*",
+    "component/emitter": "*"
+  },
+  "development": {},
+  "scripts": ["index.js"],
+  "styles": ["editor.css"]
+}

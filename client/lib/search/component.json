@@ -1,0 +1,10 @@
+{
+  "name": "search",
+  "description": "search component",
+  "dependencies": {},
+  "development": {},
+  "scripts": [
+    "index.js"
+  ],
+  "styles": ["search.css"]
+}

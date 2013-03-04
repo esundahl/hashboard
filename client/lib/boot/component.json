@@ -2,10 +2,14 @@
   "name": "boot",
   "description": "boot component",
   "dependencies": {
-    "visionmedia/page.js": "*"
+    "visionmedia/page.js": "*",
+    "component/simple-grid": "*",
+    "retrofox/namize": "*"
   },
   "development": {},
+  "local": ["hashes", "editor", "search-list"],
   "scripts": [
     "index.js"
-  ]
+  ],
+  "styles": ["boot.css"]
 }

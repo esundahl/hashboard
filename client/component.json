@@ -7,5 +7,6 @@
   "local": ["boot"],
   "scripts": [
     "index.js"
-  ]
+  ],
+  "styles": ["style.css"]
 }

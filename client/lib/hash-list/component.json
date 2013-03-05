@@ -1,5 +1,5 @@
 {
-  "name": "search-list",
+  "name": "hash-list",
   "description": "list of hashes",
   "dependencies": {
     "component/reactive": "add/iteration",
@@ -10,8 +10,8 @@
     "index.js",
     "template.js"
   ],
-  "local": ["search"],
+  "local": [],
   "styles": [
-    "search-list.css"
+    "hash-list.css"
   ]
 }

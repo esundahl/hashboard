@@ -8,7 +8,7 @@ var page = require('page');
 var Editor = require('editor');
 var Hashes = require('hash').Collection;
 var data = require('hash').fakeApi;
-var SearchList = require('search-list');
+var HashList = require('hash-list');
 
 
 /**
@@ -34,7 +34,7 @@ function index(ctx) {
     return hash.tag() === ctx.params.hash;
   });
   var content = '# ' + model.titleize() + '\n\n' + model.content()
-  var searchList = new SearchList(hashes);
+  var hashList = new HashList(hashes);
   editor.load(content);
 }
 

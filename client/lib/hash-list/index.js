@@ -4,7 +4,6 @@
  * Dependencies
  */
 
-var Search = require('search');
 var reactive = require('reactive');
 var domify = require('domify');
 var tmpl = domify(require('./template.js'))[0];
@@ -15,8 +14,6 @@ var tmpl = domify(require('./template.js'))[0];
  */
 
 reactive.bind('each', function(el, val){
-  console.log(el);
-  console.log(val);
   var self = this;
   var val = val.split(/ +/);
   el.removeAttribute('each');

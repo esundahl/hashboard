@@ -1,8 +1,8 @@
-.search-list {
+.hash-list {
   display: block;
 }
 
-.search-field input {
+.hash-field input {
   width: 100%;
   font-size: 2.4em;
   font-weight: bold;
@@ -11,11 +11,11 @@
   color: #ccc;
 }
 
-.search-field input:focus {
+.hash-field input:focus {
   outline: none;
 }
 
-.search-list {
+.hash-list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -23,10 +23,10 @@
   /*font-weight: bold;*/
 }
 
-.search-list li {
+.hash-list li {
   padding: 3px 0;
 }
 
-.search-list .result.active {
+.hash-list .result.active {
   color: #9999cc;
 }

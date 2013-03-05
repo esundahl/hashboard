@@ -6,9 +6,8 @@
 
 var page = require('page');
 var Editor = require('editor');
-var hashes = require('hashes');
-var data = hashes.fakeApi;
-var Collection = hashes.Collection;
+var Hashes = require('hash').Collection;
+var data = require('hash').fakeApi;
 var SearchList = require('search-list');
 
 
@@ -30,13 +29,12 @@ page();
 
 function index(ctx) {
   var editor = new Editor('editor');
-  var collection = new Collection(data);
-  var model = collection.models.find(function(model) {
-    return model.hash() === ctx.params.hash;
+  var hashes = new Hashes(data);
+  var model = hashes.find(function(hash) {
+    return hash.tag() === ctx.params.hash;
   });
-  var content = '# ' + model.titlelized() + '\n\n' + model.content()
-  var searchList = new SearchList(collection);
-  console.log(searchList);
+  var content = '# ' + model.titleize() + '\n\n' + model.content()
+  var searchList = new SearchList(hashes);
   editor.load(content);
 }
 

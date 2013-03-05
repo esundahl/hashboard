@@ -1,10 +1,14 @@
 {
   "name": "search-list",
   "description": "list of hashes",
-  "dependencies": {},
+  "dependencies": {
+    "component/reactive": "add/iteration",
+    "component/domify": "*"
+  },
   "development": {},
   "scripts": [
-    "index.js"
+    "index.js",
+    "template.js"
   ],
   "local": ["search"],
   "styles": [

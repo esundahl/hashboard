@@ -1,9 +1,10 @@
 {
-  "name": "hashes",
-  "description": "hash data structure",
+  "name": "hash",
+  "description": "hash",
   "dependencies": {
-    "component/model": "*",
     "component/emitter": "*",
+    "component/model": "*",
+    "matthewmueller/model-slug": "*",
     "retrofox/namize": "*",
     "component/collection": "*"
   },

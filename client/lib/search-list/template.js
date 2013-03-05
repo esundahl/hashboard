@@ -1,0 +1,1 @@
+module.exports = '<ul class=\'search-list\'>\n  <p data-text=\'test\'>Test</p>\n  <li each=\'models\'>\n    <span data-text=\'content\'>Content</span>\n  </li>\n</ul>\n';

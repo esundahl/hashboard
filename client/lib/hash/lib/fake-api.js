@@ -1,50 +1,54 @@
 module.exports = [
   {
-    "hash": "work",
+    "tag": "work",
     "content": "The quick brown fox"
   },
   {
-    "hash": "personal",
+    "tag": "personal",
     "content": "Some personal notes and such."
   },
   {
-    "hash": "weekly-summary",
+    "tag": "weekly-summary",
     "content": "Some personal notes and such."
   },
   {
-    "hash": "gift-ideas",
+    "tag": "gift-ideas",
+    "content": "* Foam Heads\n* Chocolates\n* Something Else"
+  },
+  {
+    "tag": "javascript",
     "content": "Some personal notes and such."
   },
   {
-    "hash": "javascript",
+    "tag": "backbone",
     "content": "Some personal notes and such."
   },
   {
-    "hash": "backbone",
+    "tag": "recipes",
     "content": "Some personal notes and such."
   },
   {
-    "hash": "recipes",
+    "tag": "spaghetti",
     "content": "Some personal notes and such."
   },
   {
-    "hash": "spaghetti",
+    "tag": "chili",
     "content": "Some personal notes and such."
   },
   {
-    "hash": "chili",
+    "tag": "ideas",
     "content": "Some personal notes and such."
   },
   {
-    "hash": "ideas",
+    "tag": "finance",
     "content": "Some personal notes and such."
   },
   {
-    "hash": "finance",
-    "content": "Some personal notes and such."
+    "tag": "about",
+    "content": "I am a Front End Web Developer living in #Seattle, WA. I specialize in #CSS, #Javascript"
   },
   {
-    "hash": "this-is-a-multi-word-hash",
-    "content": "Multi word hash"
+    "tag": "this-is-a-multi-word-tag",
+    "content": "Multi word tag"
   }
 ];

@@ -5,24 +5,55 @@
  */
 
 var Search = require('search');
+var reactive = require('reactive');
+var domify = require('domify');
+var tmpl = domify(require('./template.js'))[0];
+
+
+/**
+ * Add Each to reactive
+ */
+
+reactive.bind('each', function(el, val){
+  console.log(el);
+  console.log(val);
+  var self = this;
+  var val = val.split(/ +/);
+  el.removeAttribute('each');
+
+  if (val.length > 1) {
+    var name = val[0];
+    var prop = val[2];
+  } else {
+    var prop = val[0];
+  }
+
+  var arr = this.value(prop);
+
+  arr.forEach(function(obj){
+    var clone = el.cloneNode(true);
+    var view = reactive(clone, obj, {
+      parentView: self.view,
+      viewName: name
+    });
+    el.parentNode.appendChild(clone);
+  });
+
+  el.parentNode.removeChild(el);
+});
 
 
 /**
  * Constructor Function
  *
- * @param {Type} collection
+ * @param {Collection} collection
  * @return {Object}
  * @api public
  */
 
 function FilterList(collection) {
-  var el = this.el = document.getElementById('search-list');
-  console.log(collection);
-  collection.models.forEach(function(model) {
-    var li = document.createElement('li');
-    li.innerHTML = model.titlelized();
-    el.appendChild(li);
-  });  return this;
+  this.collection = collection;
+  reactive(tmpl, collection, this);
 }
 
 

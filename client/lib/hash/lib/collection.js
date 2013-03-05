@@ -25,16 +25,14 @@ function Hashes (data) {
     models.push(hash);
   });
 
-  this.models = new Collection(models);
-  return this;
+  return new Collection(models);
 }
-
 
 /**
  * Mixins
  */
 
-Emitter(Hashes.prototype);
+Emitter(Collection.prototype);
 
 
 /**

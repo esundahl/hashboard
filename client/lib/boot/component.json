@@ -7,7 +7,7 @@
     "retrofox/namize": "*"
   },
   "development": {},
-  "local": ["hashes", "editor", "search-list"],
+  "local": ["hash", "editor", "search-list"],
   "scripts": [
     "index.js"
   ],

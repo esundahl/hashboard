@@ -22,7 +22,6 @@ var Hash = model('Hash')
   .attr('content');
 
 
-
 /**
  * Returns a slug based on the hashes title
  *

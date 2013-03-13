@@ -6,7 +6,8 @@
     "component/model": "*",
     "matthewmueller/model-slug": "*",
     "retrofox/namize": "*",
-    "component/collection": "*"
+    "component/collection": "*",
+    "esundahl/remove": "*"
   },
   "development": {},
   "scripts": [

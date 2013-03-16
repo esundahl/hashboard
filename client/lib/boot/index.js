@@ -5,10 +5,8 @@
  */
 
 var page = require('page');
-var Editor = require('editor');
 var Hashes = require('hash').Collection;
 var data = require('hash').fakeApi;
-var HashList = require('hash-list');
 
 
 /**

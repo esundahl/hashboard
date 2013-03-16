@@ -1,0 +1,10 @@
+{
+  "name": "main-view",
+  "description": "application main view",
+  "dependencies": {},
+  "local": ["hash-list", "editor"],
+  "development": {},
+  "scripts": [
+    "index.js"
+  ]
+}

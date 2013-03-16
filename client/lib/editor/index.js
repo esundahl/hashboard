@@ -40,8 +40,8 @@ function Editor (id) {
  * @api public
  */
 
-Editor.prototype.load = function (content) {
-  this.el.value = content;
+Editor.prototype.load = function (model) {
+  this.el.value = '# ' + model.titleize() + '\n\n' + model.content()
   this.emit('load', this.el.value);
 }
 

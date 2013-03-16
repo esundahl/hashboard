@@ -30,11 +30,10 @@ page();
 function index(ctx) {
   var editor = new Editor('editor');
   var hashes = new Hashes(data);
+  var hashList = new HashList(hashes);
   var model = hashes.find(function(hash) {
     return hash.tag() === ctx.params.hash;
   });
-  var content = '# ' + model.titleize() + '\n\n' + model.content()
-  var hashList = new HashList(hashes);
-  editor.load(content);
+  editor.load(model);
 }
 

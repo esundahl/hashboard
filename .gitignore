@@ -6,3 +6,5 @@ client/test/runner.html
 client/test/runner.html
 rethinkdb_data/
 hashed.md
+add
+client/lib/hash-list/template.js

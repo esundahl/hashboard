@@ -5,39 +5,17 @@
  */
 
 var reactive = require('reactive');
+var type = require('type');
 var domify = require('domify');
-var tmpl = domify(require('./template.js'))[0];
+var template = require('./template.js');
+var tmpl = domify(template)[0];
 
 
 /**
- * Add Each to reactive
+ * Class Variables
  */
 
-reactive.bind('each', function(el, val){
-  var self = this;
-  var val = val.split(/ +/);
-  el.removeAttribute('each');
-
-  if (val.length > 1) {
-    var name = val[0];
-    var prop = val[2];
-  } else {
-    var prop = val[0];
-  }
-
-  var arr = this.value(prop);
-
-  arr.forEach(function(obj){
-    var clone = el.cloneNode(true);
-    var view = reactive(clone, obj, {
-      parentView: self.view,
-      viewName: name
-    });
-    el.parentNode.appendChild(clone);
-  });
-
-  el.parentNode.removeChild(el);
-});
+var view = domify("<ul class='hash-list'></ul>")[0];
 
 
 /**
@@ -48,9 +26,53 @@ reactive.bind('each', function(el, val){
  * @api public
  */
 
-function FilterList(collection) {
+function HashList(collection) {
+  collection.forEach(add);
+  collection.on('remove', remove);
+  collection.on('add', add);
   this.collection = collection;
-  reactive(tmpl, collection, this);
+  this.view = view;
+  return this;
+}
+
+
+/**
+ * Add Item
+ * TODO Test add method
+ *
+ * @param {Hash.Model} item
+ * @return {Type}
+ * @api public
+ */
+
+function add(model) {
+  var itemView = tmpl.cloneNode(true);
+  reactive(itemView, model);
+  model.listItemView = itemView;
+  view.appendChild(itemView);
+}
+
+
+/**
+ * Remove Item
+ * TODO Test remove method
+ *
+ * @param {Type} name
+ * @return {Type}
+ * @api public
+ */
+
+function remove(model) {
+
+  if (type(model) === 'array') {
+    model.forEach(remove);
+  }
+
+  else {
+    var itemView = model.listItemView;
+    itemView.parentNode.removeChild(itemView);
+  }
+
 }
 
 
@@ -58,4 +80,4 @@ function FilterList(collection) {
  * Exports
  */
 
-module.exports = FilterList;
+module.exports = HashList;

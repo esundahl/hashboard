@@ -6,7 +6,6 @@
 
 var namize = require('namize');
 var model = require('model');
-var slug = require('model-slug');
 
 
 /**
@@ -18,6 +17,7 @@ var slug = require('model-slug');
  */
 
 var Hash = model('Hash')
+  .attr('id')
   .attr('tag')
   .attr('content');
 

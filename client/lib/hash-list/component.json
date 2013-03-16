@@ -3,7 +3,8 @@
   "description": "list of hashes",
   "dependencies": {
     "component/reactive": "add/iteration",
-    "component/domify": "*"
+    "component/domify": "*",
+    "component/type": "*"
   },
   "development": {},
   "scripts": [

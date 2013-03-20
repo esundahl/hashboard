@@ -3,9 +3,10 @@
   "description": "text editing component using ace",
   "dependencies": {
     "component/grow": "*",
-    "component/emitter": "*"
+    "component/emitter": "*",
+    "component/domify": "*"
   },
   "development": {},
-  "scripts": ["index.js"],
+  "scripts": ["index.js", "template.js"],
   "styles": ["editor.css"]
 }

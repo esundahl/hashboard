@@ -7,15 +7,14 @@
 var reactive = require('reactive');
 var type = require('type');
 var domify = require('domify');
-var template = require('./template.js');
-var tmpl = domify(template)[0];
-
+var tmpl = require('./template.js');
 
 /**
  * Class Variables
  */
 
-var view = domify("<ul class='hash-list'></ul>")[0];
+var el = domify(tmpl)[0];
+var hashListItem = el.removeChild(el.querySelector('.hash-list-item'));
 
 
 /**
@@ -27,11 +26,11 @@ var view = domify("<ul class='hash-list'></ul>")[0];
  */
 
 function HashList(collection) {
+  this.el = el;
   collection.forEach(add);
   collection.on('remove', remove);
   collection.on('add', add);
   this.collection = collection;
-  this.view = view;
   return this;
 }
 
@@ -46,10 +45,10 @@ function HashList(collection) {
  */
 
 function add(model) {
-  var itemView = tmpl.cloneNode(true);
+  var itemView = hashListItem.cloneNode(true);
   reactive(itemView, model);
   model.listItemView = itemView;
-  view.appendChild(itemView);
+  el.appendChild(itemView);
 }
 
 

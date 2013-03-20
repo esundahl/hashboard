@@ -6,6 +6,8 @@
 
 var grow = require('grow');
 var Emitter = require('emitter');
+var domify = require('domify');
+var template = require('./template');
 
 
 /**
@@ -24,10 +26,10 @@ var editor;
  * @api public
  */
 
-function Editor (id) {
+function Editor (model) {
   Emitter(this);
-  this.el = document.getElementById(id);
-  grow(this.el);
+  this.el = domify(template)[0];
+  if (model) this.load(model);
   return this;
 }
 
@@ -41,8 +43,19 @@ function Editor (id) {
  */
 
 Editor.prototype.load = function (model) {
-  this.el.value = '# ' + model.titleize() + '\n\n' + model.content()
+  this.el.querySelector('textarea').value = '# ' + model.titleize() + '\n\n' + model.content();
   this.emit('load', this.el.value);
+}
+
+
+/**
+ * Parses the textarea content
+ */
+
+Editor.prototype.parse = function (string) {
+  //Extract first line
+  //Remove hash from extracted line
+
 }
 
 

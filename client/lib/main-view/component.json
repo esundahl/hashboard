@@ -1,10 +1,13 @@
 {
   "name": "main-view",
   "description": "application main view",
-  "dependencies": {},
-  "local": ["hash-list", "editor"],
+  "dependencies": {
+    "component/domify": "*"
+  },
+  "local": ["hash-list", "editor", "search-field"],
   "development": {},
   "scripts": [
-    "index.js"
+    "index.js",
+    "template.js"
   ]
 }

@@ -2,19 +2,6 @@
   display: block;
 }
 
-.hash-field input {
-  width: 100%;
-  font-size: 2.4em;
-  font-weight: bold;
-  border: none;
-  background: none;
-  color: #ccc;
-}
-
-.hash-field input:focus {
-  outline: none;
-}
-
 .hash-list {
   list-style: none;
   margin: 0;

@@ -1,7 +1,9 @@
 {
   "name": "hashboard",
   "description": "hash app client component",
-  "dependencies": {},
+  "dependencies": {
+    "component/domify": "*"
+  },
   "development": {},
   "paths": ["lib"],
   "local": ["boot"],

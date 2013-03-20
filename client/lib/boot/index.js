@@ -7,6 +7,7 @@
 var page = require('page');
 var Hashes = require('hash').Collection;
 var data = require('hash').fakeApi;
+var MainView = require('main-view');
 
 
 /**
@@ -26,12 +27,9 @@ page();
  */
 
 function index(ctx) {
-  var editor = new Editor('editor');
   var hashes = new Hashes(data);
-  var hashList = new HashList(hashes);
-  var model = hashes.find(function(hash) {
-    return hash.tag() === ctx.params.hash;
-  });
-  editor.load(model);
+  var mainView = new MainView(hashes);
+  mainView.load(ctx.params.hash);
+  document.body.appendChild(mainView.el);
 }
 

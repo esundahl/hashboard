@@ -1,0 +1,1 @@
+module.exports = '<div class=\'editor\'>\n  <textarea name="editor"></textarea>\n</div>\n\n';

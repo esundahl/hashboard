@@ -1,0 +1,12 @@
+.search-field input {
+  width: 100%;
+  font-size: 2.4em;
+  font-weight: bold;
+  border: none;
+  background: none;
+  color: #ccc;
+}
+
+.search-field  input:focus {
+  outline: none;
+}

@@ -7,7 +7,7 @@
     "retrofox/namize": "*"
   },
   "development": {},
-  "local": ["hash"],
+  "local": ["hash", "main-view"],
   "scripts": [
     "index.js"
   ],

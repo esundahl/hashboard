@@ -1,0 +1,16 @@
+{
+  "name": "search-field",
+  "description": "search field",
+  "dependencies": {
+    "component/domify": "*",
+    "nickjackson/val": "*"
+  },
+  "development": {},
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "search-field.css"
+  ]
+}

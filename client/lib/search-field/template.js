@@ -1,0 +1,1 @@
+module.exports = '<div class=\'search-field\'>\n  <input type="text" name="search-field" placeholder=\'#Search\'/>\n</div>\n\n';

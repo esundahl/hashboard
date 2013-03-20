@@ -2,8 +2,7 @@
   "name": "search-field",
   "description": "search field",
   "dependencies": {
-    "component/domify": "*",
-    "nickjackson/val": "*"
+    "component/domify": "*"
   },
   "development": {},
   "scripts": [

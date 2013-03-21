@@ -18,6 +18,7 @@ var tmpl = require('./template.js');
 
 function SearchField(collection) {
   this.el = domify(tmpl)[0].cloneNode(true);
+  this.input = this.el.querySelector('input');
   return this;
 }
 
@@ -25,13 +26,37 @@ function SearchField(collection) {
 /**
  * Sets fields content
  *
- * @param {Type} value
+ * @param {String} value // Value used for input value
+ * @param {Boolean} placeholder // Optional boolean value sets placeholder value instead, if true
  * @return {Type}
  * @api public
  */
 
-SearchField.prototype.set = function(value) {
-  this.el.querySelector('input').value = value;
+SearchField.prototype.set = function(value, placeholder) {
+
+  if (placeholder) {
+    this.input.placeholder = value;
+    this.input.value = '';
+  }
+
+  else {
+    this.input.value = value;
+    this.input.placeholder = '';
+  }
+
+}
+
+
+/**
+ * Placeholder
+ *
+ * @param {Type} 
+ * @return {Type}
+ * @api public
+ */
+
+SearchField.prototype.placeholder = function (value) {
+  this.el.querySelector('input').placeholder = value;
 }
 
 

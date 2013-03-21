@@ -54,7 +54,7 @@ MainView.prototype.load = function(hash) {
   var model = this.collection.find(function(model) {
     return model.tag() === hash;
   });
-  searchField.set(model.tag());
+  searchField.set(model.tag(), true);
   editor.load(model);
 }
 

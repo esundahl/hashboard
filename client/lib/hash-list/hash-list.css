@@ -14,6 +14,11 @@
   padding: 3px 0;
 }
 
+.hash-list a {
+  text-decoration: none;
+  color: #ccc;
+}
+
 .hash-list .result.active {
   color: #9999cc;
 }

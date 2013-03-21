@@ -11,12 +11,36 @@ var MainView = require('main-view');
 
 
 /**
+ * Private Variables
+ */
+
+var hashes;
+var mainView;
+
+
+/**
  * Routes
  */
 
+page('*', init);
 page('/', index);
 page('/hash/:hash', index);
 page();
+
+
+/**
+ * Init
+ *
+ * @return {Type}
+ * @api public
+ */
+
+function init(ctx, next) {
+  hashes = hashes || new Hashes(data);
+  mainView = mainView || new MainView(hashes);
+  document.body.appendChild(mainView.el);
+  next();
+}
 
 
 /**
@@ -26,10 +50,6 @@ page();
  * @api public
  */
 
-function index(ctx) {
-  var hashes = new Hashes(data);
-  var mainView = new MainView(hashes);
+function index(ctx, next) {
   mainView.load(ctx.params.hash);
-  document.body.appendChild(mainView.el);
 }
-

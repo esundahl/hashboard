@@ -16,7 +16,7 @@ var domify = require('domify');
  */
 
 var el = domify(template)[0];
-window.searchField;
+var searchField;
 var hashList;
 var editor;
 

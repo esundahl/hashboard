@@ -2,7 +2,7 @@
   "name": "hash-list",
   "description": "list of hashes",
   "dependencies": {
-    "component/reactive": "add/iteration",
+    "component/reactive": "add/interpolation",
     "component/domify": "*",
     "component/type": "*"
   },

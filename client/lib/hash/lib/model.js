@@ -31,10 +31,6 @@ var Hash = model('Hash')
 
 Hash.prototype.slug = function () {
   return this.tag();
-  //return this.title().toLowerCase()
-    //.replace(/[^a-z0-9]/g, ' ')
-    //.replace(/^ +| +$/g, '')
-    //.replace(/ +/g, '-');
 }
 
 

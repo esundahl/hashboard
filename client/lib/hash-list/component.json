@@ -4,7 +4,8 @@
   "dependencies": {
     "component/reactive": "add/interpolation",
     "component/domify": "*",
-    "component/type": "*"
+    "component/type": "*",
+    "component/events": "*"
   },
   "development": {},
   "scripts": [

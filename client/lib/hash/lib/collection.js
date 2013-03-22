@@ -7,7 +7,7 @@
 var Hash = require('./model.js');
 var Emitter = require('emitter');
 var Collection = require('collection');
-var remove = require('remove');
+
 
 /**
  * Constructor
@@ -22,6 +22,7 @@ function Hashes (data) {
   data.forEach(hashes.add, hashes);
   return hashes;
 }
+
 
 /**
  * Mixins
@@ -56,9 +57,29 @@ Collection.prototype.add = function (data) {
 
 
 Collection.prototype.remove = function (index) {
-  // TODO: Write tests for the new remove refactor
   var items = this.models.splice(index, arguments[1] || 1);
   this.emit('remove', items);
+}
+
+
+/**
+ * Set Active Model
+ *
+ * @param {Sting|Hash.Model} model
+ * @return {Type}
+ * @api public
+ */
+
+Collection.prototype.active = function (model) {
+  console.log(model);
+
+  //if (typeof model === 'string') {
+    //active = this.find(function(hash) {
+      //return model === hash.tag();
+    //});
+  //}
+  //else active = model;
+  //this.emit('active', model);
 }
 
 

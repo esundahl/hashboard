@@ -7,15 +7,17 @@
 var reactive = require('reactive');
 var type = require('type');
 var domify = require('domify');
-var tmpl = require('./template.js');
+var template = require('./template.js');
+var events = require('events');
 
 
 /**
- * Class Variables
+ * Private Variables
  */
 
-var el = domify(tmpl)[0];
-var hashListItem = el.removeChild(el.querySelector('.hash-list-item'));
+var tmpl = domify(template)[0];
+var el = tmpl.cloneNode(true);
+var active;
 
 
 /**
@@ -27,10 +29,17 @@ var hashListItem = el.removeChild(el.querySelector('.hash-list-item'));
  */
 
 function HashList(collection) {
-  this.el = el;
+  el.removeChild(el.querySelector('.hash-list-item'));
+
   collection.forEach(add);
   collection.on('remove', remove);
   collection.on('add', add);
+  collection.on('active', active);
+
+  events = events(el, this);
+  //events.bind('click');
+
+  this.el = el;
   this.collection = collection;
   return this;
 }
@@ -46,16 +55,16 @@ function HashList(collection) {
  */
 
 function add(model) {
-  var itemView = hashListItem.cloneNode(true);
+  var itemView = tmpl.cloneNode(true);
   reactive(itemView, model);
-  model.listItemView = itemView;
-  el.appendChild(itemView);
+  model.listItemView = itemView.removeChild(itemView.querySelector('.hash-list-item'));
+  el.appendChild(model.listItemView);
 }
 
 
 /**
  * Remove Item
- * TODO Test remove method
+
  *
  * @param {Type} name
  * @return {Type}
@@ -73,6 +82,11 @@ function remove(model) {
     itemView.parentNode.removeChild(itemView);
   }
 
+}
+
+
+function active(model) {
+  console.log(model);
 }
 
 

@@ -24,7 +24,7 @@ var mainView;
 
 page('*', init);
 page('/', index);
-page('/hash/:hash', index);
+page('/hash/:hash', hash);
 page();
 
 
@@ -46,10 +46,23 @@ function init(ctx, next) {
 /**
  * Index
  *
- * @param {Object} ctx
+ * @param {Type} name
+ * @return {Type}
  * @api public
  */
 
 function index(ctx, next) {
-  mainView.load(ctx.params.hash);
+  // body...
+}
+
+
+/**
+ * Hash
+ *
+ * @param {Object} ctx
+ * @api public
+ */
+
+function hash(ctx, next) {
+  hashes.active(ctx.params.hash);
 }

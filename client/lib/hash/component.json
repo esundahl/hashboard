@@ -5,8 +5,7 @@
     "component/emitter": "*",
     "component/model": "*",
     "retrofox/namize": "*",
-    "component/collection": "*",
-    "esundahl/remove": "*"
+    "component/collection": "*"
   },
   "development": {},
   "scripts": [

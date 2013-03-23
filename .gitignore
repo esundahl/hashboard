@@ -8,3 +8,4 @@ rethinkdb_data/
 hashed.md
 add
 client/lib/hash-list/template.js
+server/public/app.css

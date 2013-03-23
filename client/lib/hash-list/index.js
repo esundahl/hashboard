@@ -85,11 +85,6 @@ function remove(model) {
 }
 
 
-function active(model) {
-  console.log(model);
-}
-
-
 /**
  * Exports
  */

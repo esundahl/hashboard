@@ -41,7 +41,9 @@ Emitter(Collection.prototype);
 
 
 Collection.prototype.add = function (data) {
+  var self = this;
   var hash = new Hash(data);
+  hash.on('change active', this.active);
   this.push(hash);
   this.emit('add', hash);
 }
@@ -63,23 +65,35 @@ Collection.prototype.remove = function (index) {
 
 
 /**
- * Set Active Model
+ * Find a Model by tag
  *
- * @param {Sting|Hash.Model} model
+ * @param {String} tag
  * @return {Type}
  * @api public
  */
 
-Collection.prototype.active = function (model) {
-  console.log(model);
+Collection.prototype.findByTag = function (tag) {
+  var result;
+  if (typeof tag === 'string') {
+    result = this.find(function(model) {
+      return model.tag() === tag;
+    })
+  }
+  return result;
+}
 
-  //if (typeof model === 'string') {
-    //active = this.find(function(hash) {
-      //return model === hash.tag();
-    //});
-  //}
-  //else active = model;
-  //this.emit('active', model);
+
+/**
+ * Set Active Model
+ *
+ * @param {String} tag
+ * @return {Type}
+ * @api public
+ */
+
+Collection.prototype.active = function (tag) {
+  console.log(tag);
+  this.emit('change active', model);
 }
 
 

@@ -19,6 +19,7 @@ var model = require('model');
 var Hash = model('Hash')
   .attr('id')
   .attr('tag')
+  .attr('active')
   .attr('content');
 
 

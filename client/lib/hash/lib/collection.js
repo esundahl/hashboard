@@ -43,7 +43,6 @@ Emitter(Collection.prototype);
 Collection.prototype.add = function (data) {
   var self = this;
   var hash = new Hash(data);
-  hash.on('change active', this.active);
   this.push(hash);
   this.emit('add', hash);
 }
@@ -77,24 +76,26 @@ Collection.prototype.findByTag = function (tag) {
   if (typeof tag === 'string') {
     result = this.find(function(model) {
       return model.tag() === tag;
-    })
+    });
   }
   return result;
 }
 
 
 /**
- * Set Active Model
+ * Set active hash
  *
- * @param {String} tag
+ * @param {Type} name
  * @return {Type}
  * @api public
  */
 
-Collection.prototype.active = function (tag) {
-  console.log(tag);
-  this.emit('change active', model);
+Collection.prototype.setActiveHash = function (model) {
+  if (this.activeHash) this.activeHash.active(false);
+  this.activeHash = model;
+  this.activeHash.active(true);
 }
+
 
 
 /**

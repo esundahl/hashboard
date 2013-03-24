@@ -10,8 +10,12 @@
   /*font-weight: bold;*/
 }
 
-.hash-list li {
+.hash-list-item {
   padding: 3px 0;
+}
+
+.hash-list-item.active a {
+  color: #ddf;
 }
 
 .hash-list a {

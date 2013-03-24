@@ -8,7 +8,7 @@ var reactive = require('reactive');
 var type = require('type');
 var domify = require('domify');
 var template = require('./template.js');
-var events = require('events');
+var classes = require('classes');
 
 
 /**
@@ -18,6 +18,9 @@ var events = require('events');
 var tmpl = domify(template)[0];
 var el = tmpl.cloneNode(true);
 var active;
+
+
+
 
 
 /**
@@ -36,9 +39,6 @@ function HashList(collection) {
   collection.on('add', add);
   collection.on('active', active);
 
-  events = events(el, this);
-  //events.bind('click');
-
   this.el = el;
   this.collection = collection;
   return this;
@@ -47,7 +47,6 @@ function HashList(collection) {
 
 /**
  * Add Item
- * TODO Test add method
  *
  * @param {Hash.Model} item
  * @return {Type}
@@ -57,14 +56,14 @@ function HashList(collection) {
 function add(model) {
   var itemView = tmpl.cloneNode(true);
   reactive(itemView, model);
-  model.listItemView = itemView.removeChild(itemView.querySelector('.hash-list-item'));
-  el.appendChild(model.listItemView);
+  itemView = itemView.removeChild(itemView.querySelector('.hash-list-item'));
+  el.appendChild(itemView);
 }
+
 
 
 /**
  * Remove Item
-
  *
  * @param {Type} name
  * @return {Type}
@@ -83,6 +82,21 @@ function remove(model) {
   }
 
 }
+
+
+/**
+ * active binding.
+ */
+
+reactive.bind('data-active', function(el, name){
+  this.change(function(){
+    if (this.value(name)) {
+      classes(el).add('active');
+    } else {
+      classes(el).remove('active');
+    }
+  });
+});
 
 
 /**

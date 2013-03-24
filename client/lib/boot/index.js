@@ -64,5 +64,7 @@ function index(ctx, next) {
  */
 
 function hash(ctx, next) {
-  hashes.active(ctx.params.hash);
+  var activeModel = hashes.findByTag(ctx.params.hash);
+  mainView.load(activeModel);
+  hashes.setActiveHash(activeModel);
 }

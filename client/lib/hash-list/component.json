@@ -5,7 +5,7 @@
     "component/reactive": "add/interpolation",
     "component/domify": "*",
     "component/type": "*",
-    "component/events": "*"
+    "component/classes": "*"
   },
   "development": {},
   "scripts": [

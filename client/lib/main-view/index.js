@@ -45,15 +45,12 @@ function MainView(collection) {
 /**
  * Load a hash
  *
- * @param {String} hash
+ * @param {Hash.model} model
  * @return {Type}
  * @api public
  */
 
-MainView.prototype.load = function(hash) {
-  var model = this.collection.find(function(model) {
-    return model.tag() === hash;
-  });
+MainView.prototype.load = function(model) {
   searchField.set(model.tag(), true);
   editor.load(model);
 }

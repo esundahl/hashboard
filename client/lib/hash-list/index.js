@@ -20,9 +20,6 @@ var el = tmpl.cloneNode(true);
 var active;
 
 
-
-
-
 /**
  * Constructor Function
  *

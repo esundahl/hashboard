@@ -4,7 +4,9 @@
   "dependencies": {
     "component/grow": "*",
     "component/emitter": "*",
-    "component/domify": "*"
+    "component/domify": "*",
+    "component/delegates": "*",
+    "retrofox/namize": "*"
   },
   "development": {},
   "scripts": ["index.js", "template.js"],

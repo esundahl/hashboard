@@ -6,15 +6,10 @@
 
 var grow = require('grow');
 var Emitter = require('emitter');
+var delegates = require('delegates');
 var domify = require('domify');
+var namize = require('namize');
 var template = require('./template');
-
-
-/**
- * Private Variables
- */
-
-var editor;
 
 
 /**
@@ -29,7 +24,16 @@ var editor;
 function Editor (model) {
   Emitter(this);
   this.el = domify(template)[0];
-  if (model) this.load(model);
+  this.textarea = this.el.querySelector('textarea');
+
+  this.events = delegates(this.el, this);
+  this.events.bind('keyup textarea', 'keypress');
+  
+  if (model) {
+    this.model = model
+    this.load(model);
+  }
+
   return this;
 }
 
@@ -43,19 +47,81 @@ function Editor (model) {
  */
 
 Editor.prototype.load = function (model) {
-  this.el.querySelector('textarea').value = '# ' + model.titleize() + '\n\n' + model.content();
+  this.textarea.value = '# ' + model.titleize() + '\n\n' + model.content();
   this.emit('load', this.el.value);
-}
+};
 
 
 /**
- * Parses the textarea content
+ * Saves the parsed content
+ *
+ * @param {Type} name
+ * @return {Type}
+ * @api public
  */
 
-Editor.prototype.parse = function (string) {
-  //Extract first line
-  //Remove hash from extracted line
+Editor.prototype.save = function () {
+  var parsed = parse(this.textarea.value);
+};
 
+
+/**
+ * Handles editor keypress events
+ *
+ * @param {event} e
+ * @return {Type}
+ * @api public
+ */
+
+Editor.prototype.keypress = function(e) {
+  console.log(this.parse());
+};
+
+
+/**
+ * Parses the contents of the editor
+ *
+ * @param {Type} name
+ * @return {Type}
+ * @api public
+ */
+
+Editor.prototype.parse = function() {
+  var lines = this.textarea.value.split('\n');
+  var hash = this.parseHash(lines.shift());
+  if (lines[0] === '') lines.shift();
+  return {
+    lines: lines,
+    hash: hash
+  };
+};
+
+
+/**
+ * Parses a hash entry
+ *
+ * @param {String} hash
+ * @return {Strin}
+ * @api public
+ */
+
+Editor.prototype.parseHash = function(hash) {
+  var first = hash.charAt(0);
+  var second = hash.charAt(1);
+  var result;
+  result = hash.replace('#', '');
+  result = result.trim();
+  result = result.toLowerCase();
+  result = result.replace(/\ /g, '-');
+  return result;
+}
+
+
+function titleize (string) {
+  var formatted = string;
+  formatted = formatted.replace(/-/g, ' ');
+  formatted = namize(formatted);
+  return formatted;
 }
 
 

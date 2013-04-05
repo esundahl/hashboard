@@ -6,6 +6,7 @@
 
 var namize = require('namize');
 var model = require('model');
+var storage = require('loStorage.js').storage;
 
 
 /**
@@ -48,6 +49,24 @@ Hash.prototype.titleize = function () {
   formatted = namize(formatted);
   return formatted;
 }
+
+
+/**
+ * Saves the hash
+ *
+ * @param {Type} name
+ * @return {Type}
+ * @api public
+ */
+
+Hash.prototype.save = function() {
+	var hash = {
+		tag: this.tag(),
+		content: this.content()
+	};
+  storage.set(this.tag(), hash);
+}
+
 
 /**
  * Exports

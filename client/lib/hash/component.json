@@ -5,7 +5,8 @@
     "component/emitter": "*",
     "component/model": "*",
     "retrofox/namize": "*",
-    "component/collection": "*"
+    "component/collection": "*",
+    "js-coder/loStorage.js": "*"
   },
   "development": {},
   "scripts": [

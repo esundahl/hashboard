@@ -4,8 +4,7 @@
   "dependencies": {
     "visionmedia/page.js": "*",
     "component/simple-grid": "*",
-    "retrofox/namize": "*",
-    "marcuswestin/store.js": "*"
+    "retrofox/namize": "*"
   },
   "development": {},
   "local": ["hash", "main-view"],

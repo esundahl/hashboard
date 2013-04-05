@@ -7,7 +7,6 @@
 var page = require('page');
 var Hashes = require('hash').Collection;
 var MainView = require('main-view');
-var store = require('store');
 
 
 /**
@@ -37,13 +36,7 @@ page();
  */
 
 function init(ctx, next) {
-
-	if (!data) {
-		data = store.getAll();
-		delete data['debug'];
-	}
-	
-  hashes = hashes || new Hashes(data);
+  hashes = hashes || new Hashes(data).fetch();
   mainView = mainView || new MainView(hashes);
   document.body.appendChild(mainView.el);
   next();

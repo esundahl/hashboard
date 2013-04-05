@@ -7,6 +7,7 @@
 var Hash = require('./model.js');
 var Emitter = require('emitter');
 var Collection = require('collection');
+var store = require('store');
 
 
 /**
@@ -17,11 +18,8 @@ var Collection = require('collection');
  * @api public
  */
 
-function Hashes (data) {
-  var hashes = new Collection();
-  for (hash in data) {
-    hashes.add(data[hash]);
-  }
+function Hashes (models) {
+  var hashes = new Collection(models);
   return hashes;
 }
 
@@ -77,7 +75,13 @@ Collection.prototype.remove = function (index) {
  */
 
 Collection.prototype.fetch = function() {
-
+  var data = store.getAll();
+  delete data['debug'];
+  for (hash in data) {
+    this.add(data[hash]);
+  }
+  this.emit('fetch', this);
+  return this;
 }
 
 

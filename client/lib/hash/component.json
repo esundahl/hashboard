@@ -6,7 +6,7 @@
     "component/model": "*",
     "retrofox/namize": "*",
     "component/collection": "*",
-    "js-coder/loStorage.js": "*"
+    "marcuswestin/store.js": "*"
   },
   "development": {},
   "scripts": [

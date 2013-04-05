@@ -6,7 +6,7 @@
 
 var namize = require('namize');
 var model = require('model');
-var storage = require('loStorage.js').storage;
+var store = require('store');
 
 
 /**
@@ -64,7 +64,7 @@ Hash.prototype.save = function() {
 		tag: this.tag(),
 		content: this.content()
 	};
-  storage.set(this.tag(), hash);
+	store.set(this.tag(), hash);
 }
 
 

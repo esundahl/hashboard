@@ -6,8 +6,8 @@
 
 var page = require('page');
 var Hashes = require('hash').Collection;
-var data = require('hash').fakeApi;
 var MainView = require('main-view');
+var store = require('store');
 
 
 /**
@@ -16,6 +16,7 @@ var MainView = require('main-view');
 
 var hashes;
 var mainView;
+var data;
 
 
 /**
@@ -36,6 +37,12 @@ page();
  */
 
 function init(ctx, next) {
+
+	if (!data) {
+		data = store.getAll();
+		delete data['debug'];
+	}
+	
   hashes = hashes || new Hashes(data);
   mainView = mainView || new MainView(hashes);
   document.body.appendChild(mainView.el);

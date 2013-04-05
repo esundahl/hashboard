@@ -19,7 +19,9 @@ var Collection = require('collection');
 
 function Hashes (data) {
   var hashes = new Collection();
-  data.forEach(hashes.add, hashes);
+  for (hash in data) {
+    hashes.add(data[hash]);
+  }
   return hashes;
 }
 
@@ -42,7 +44,11 @@ Emitter(Collection.prototype);
 
 Collection.prototype.add = function (data) {
   var self = this;
-  var hash = new Hash(data);
+  console.log(data);
+  var hash = new Hash({
+    tag: data.tag,
+    content: data.content
+  });
   this.push(hash);
   this.emit('add', hash);
 }
@@ -60,6 +66,19 @@ Collection.prototype.add = function (data) {
 Collection.prototype.remove = function (index) {
   var items = this.models.splice(index, arguments[1] || 1);
   this.emit('remove', items);
+}
+
+
+/**
+ * Fetches hash data
+ *
+ * @param {Type} name
+ * @return {Type}
+ * @api public
+ */
+
+Collection.prototype.fetch = function() {
+
 }
 
 

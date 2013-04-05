@@ -47,6 +47,7 @@ function Editor (model) {
  */
 
 Editor.prototype.load = function (model) {
+  this.model = model;
   this.textarea.value = '# ' + model.titleize() + '\n\n' + model.content();
   this.emit('load', this.el.value);
 };
@@ -61,7 +62,7 @@ Editor.prototype.load = function (model) {
  */
 
 Editor.prototype.save = function () {
-  var parsed = parse(this.textarea.value);
+  console.log('Saved!');
 };
 
 
@@ -74,7 +75,12 @@ Editor.prototype.save = function () {
  */
 
 Editor.prototype.keypress = function(e) {
-  console.log(this.parse());
+  var parsed = this.parse();
+  if (parsed.hash !== this.model.tag()) {
+    this.model.tag(parsed.hash);
+  }
+  this.model.content(parsed.lines.join('\n'));
+  this.model.save();
 };
 
 
@@ -114,7 +120,7 @@ Editor.prototype.parseHash = function(hash) {
   result = result.toLowerCase();
   result = result.replace(/\ /g, '-');
   return result;
-}
+};
 
 
 function titleize (string) {

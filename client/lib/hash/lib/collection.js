@@ -44,7 +44,6 @@ Emitter(Collection.prototype);
 
 Collection.prototype.add = function (data) {
   var self = this;
-  console.log(data);
   var hash = new Hash({
     tag: data.tag,
     content: data.content

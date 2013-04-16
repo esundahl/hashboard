@@ -50,20 +50,7 @@ Editor.prototype.load = function (model) {
   this.model = model;
   this.textarea.value = '# ' + model.titleize() + '\n\n' + model.content();
   this.emit('load', this.el.value);
-};
-
-
-/**
- * Saves the parsed content
- *
- * @param {Type} name
- * @return {Type}
- * @api public
- */
-
-Editor.prototype.save = function () {
-  console.log('Saved!');
-};
+}
 
 
 /**
@@ -76,12 +63,11 @@ Editor.prototype.save = function () {
 
 Editor.prototype.keypress = function(e) {
   var parsed = this.parse();
-  if (parsed.hash !== this.model.tag()) {
-    this.model.tag(parsed.hash);
-  }
-  this.model.content(parsed.lines.join('\n'));
+  this.model.rename(parsed.hash);
+  this.model.content(parsed.content);
   this.model.save();
-};
+}
+
 
 
 /**
@@ -97,10 +83,10 @@ Editor.prototype.parse = function() {
   var hash = this.parseHash(lines.shift());
   if (lines[0] === '') lines.shift();
   return {
-    lines: lines,
+    content: lines.join('\n'),
     hash: hash
   };
-};
+}
 
 
 /**
@@ -120,7 +106,7 @@ Editor.prototype.parseHash = function(hash) {
   result = result.toLowerCase();
   result = result.replace(/\ /g, '-');
   return result;
-};
+}
 
 
 function titleize (string) {

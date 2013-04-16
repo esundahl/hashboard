@@ -46,6 +46,7 @@ Collection.prototype.add = function (data) {
     tag: data.tag,
     content: data.content
   });
+  hash.save();
   this.push(hash);
   this.emit('add', hash);
 }
@@ -77,9 +78,12 @@ Collection.prototype.remove = function (index) {
 Collection.prototype.fetch = function() {
   var data = store.getAll();
   delete data['debug'];
+
   for (hash in data) {
-    this.add(data[hash]);
+    var model = data[hash];
+    this.add(model);
   }
+
   this.emit('fetch', this);
   return this;
 }

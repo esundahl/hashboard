@@ -59,12 +59,29 @@ Hash.prototype.titleize = function () {
  * @api public
  */
 
-Hash.prototype.save = function() {
-	var hash = {
-		tag: this.tag(),
-		content: this.content()
-	};
-	store.set(this.tag(), hash);
+Hash.prototype.save = function () {
+	store.set(this.tag(), {
+    tag: this.tag(),
+    content: this.content()
+  });
+  this.emit('save');
+  return this;
+}
+
+
+/**
+ * Renames the hash
+ *
+ * @param {Type} name
+ * @return {Type}
+ * @api public
+ */
+
+Hash.prototype.rename = function (hash) {
+  store.remove(this.tag());
+  this.tag(hash);
+  this.save();
+  return this;
 }
 
 

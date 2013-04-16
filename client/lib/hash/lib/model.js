@@ -54,8 +54,7 @@ Hash.prototype.titleize = function () {
 /**
  * Saves the hash
  *
- * @param {Type} name
- * @return {Type}
+ * @return {Hash.Model}
  * @api public
  */
 
@@ -72,8 +71,8 @@ Hash.prototype.save = function () {
 /**
  * Renames the hash
  *
- * @param {Type} name
- * @return {Type}
+ * @param {String} hash
+ * @return {Hash.Model}
  * @api public
  */
 

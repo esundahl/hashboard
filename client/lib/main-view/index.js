@@ -30,14 +30,21 @@ var editor;
  */
 
 function MainView(collection) {
+
+  // Initialize SubViews
   hashList = new HashList(collection);
   searchField = new SearchField(collection);
   editor = new Editor();
+
+  // Append SubViews
   el.querySelector('.hash-list').parentNode.replaceChild(hashList.el, el.querySelector('.hash-list'));
   el.querySelector('.search-field').parentNode.replaceChild(searchField.el, el.querySelector('.search-field'));
   el.querySelector('.editor').parentNode.replaceChild(editor.el, el.querySelector('.editor'));
+
+  // Assign Properties
   this.collection = collection;
   this.el = el;
+
   return this;
 }
 

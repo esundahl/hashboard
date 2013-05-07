@@ -6,6 +6,8 @@
 
 var domify = require('domify');
 var tmpl = require('./template.js');
+var Emitter = require('emitter');
+var delegates = require('delegates');
 
 
 /**
@@ -19,8 +21,13 @@ var tmpl = require('./template.js');
 function SearchField(collection) {
   this.el = domify(tmpl)[0].cloneNode(true);
   this.input = this.el.querySelector('input');
+
+  this.events = delegates(this.el, this);
+  this.events.bind('keyup input', 'keyup');
+
   return this;
 }
+Emitter(SearchField.prototype);
 
 
 /**
@@ -35,13 +42,11 @@ function SearchField(collection) {
 SearchField.prototype.set = function(value, placeholder) {
 
   if (placeholder) {
-    this.input.placeholder = value;
-    this.input.value = '';
+    this.input.value = value;
   }
 
   else {
     this.input.value = value;
-    this.input.placeholder = '';
   }
 
 }
@@ -60,6 +65,17 @@ SearchField.prototype.placeholder = function (value) {
 }
 
 
+/**
+ * Keyup Event
+ *
+ * @param {Type} name
+ * @return {Type}
+ * @api public
+ */
+
+SearchField.prototype.keyup = function (e) {
+  this.emit('keyup', e);
+}
 
 /**
  * Exports

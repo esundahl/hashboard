@@ -1,7 +1,7 @@
 
 
-/**
- * Dependencies
+/*!
+ * # Dependencies
  */
 
 var page = require('page');
@@ -9,8 +9,8 @@ var Hashes = require('hash').Collection;
 var MainView = require('main-view');
 
 
-/**
- * Private Variables
+/*!
+ * # Private Variables
  */
 
 var hashes;
@@ -19,7 +19,7 @@ var data;
 
 
 /**
- * Routes
+ * # Routes
  */
 
 page('*', init);
@@ -28,8 +28,8 @@ page('/hash/:hash', hash);
 page();
 
 
-/**
- * Init
+/*!
+ * Constructor
  *
  * @return {Type}
  * @api public

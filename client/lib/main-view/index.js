@@ -36,6 +36,12 @@ function MainView(collection) {
   searchField = new SearchField(collection);
   editor = new Editor();
 
+  // Bind Events
+  searchField.on('keyup', function(e) {
+    var val = e.srcElement.value;
+    
+  });
+
   // Append SubViews
   el.querySelector('.hash-list').parentNode.replaceChild(hashList.el, el.querySelector('.hash-list'));
   el.querySelector('.search-field').parentNode.replaceChild(searchField.el, el.querySelector('.search-field'));

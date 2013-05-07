@@ -97,7 +97,7 @@ Collection.prototype.fetch = function() {
  * @api public
  */
 
-Collection.prototype.findByTag = function (tag) {
+  Collection.prototype.findByTag = function (tag) {
   var result;
   if (typeof tag === 'string') {
     result = this.find(function(model) {

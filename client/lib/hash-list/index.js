@@ -1,6 +1,6 @@
 
 
-/**
+/*!
  * Dependencies
  */
 
@@ -11,7 +11,7 @@ var template = require('./template.js');
 var classes = require('classes');
 
 
-/**
+/*!
  * Private Variables
  */
 

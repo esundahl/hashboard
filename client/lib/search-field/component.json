@@ -2,7 +2,9 @@
   "name": "search-field",
   "description": "search field",
   "dependencies": {
-    "component/domify": "*"
+    "component/domify": "*",
+    "component/emitter": "*",
+    "component/delegates": "*"
   },
   "development": {},
   "scripts": [

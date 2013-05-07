@@ -22,12 +22,13 @@ var template = require('./template');
  */
 
 function Editor (model) {
-  Emitter(this);
   this.el = domify(template)[0];
   this.textarea = this.el.querySelector('textarea');
 
   this.events = delegates(this.el, this);
   this.events.bind('keyup textarea', 'keypress');
+  
+  grow(this.textarea);
   
   if (model) {
     this.model = model
@@ -36,7 +37,7 @@ function Editor (model) {
 
   return this;
 }
-
+Emitter(Editor.prototype);
 
 /**
  * Loads data

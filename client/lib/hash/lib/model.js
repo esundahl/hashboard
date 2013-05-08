@@ -9,6 +9,8 @@ var model = require('model');
 var store = require('store');
 
 
+
+
 /**
  * Constructor Function
  *
@@ -24,6 +26,8 @@ var Hash = model('Hash')
   .attr('content');
 
 
+
+
 /**
  * Returns a slug based on the hashes title
  *
@@ -34,6 +38,8 @@ var Hash = model('Hash')
 Hash.prototype.slug = function () {
   return this.tag();
 }
+
+
 
 
 /**
@@ -49,6 +55,8 @@ Hash.prototype.titleize = function () {
   formatted = namize(formatted);
   return formatted;
 }
+
+
 
 
 /**
@@ -68,6 +76,8 @@ Hash.prototype.save = function () {
 }
 
 
+
+
 /**
  * Renames the hash
  *
@@ -82,6 +92,8 @@ Hash.prototype.rename = function (hash) {
   this.save();
   return this;
 }
+
+
 
 
 /**

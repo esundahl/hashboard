@@ -12,6 +12,8 @@ var namize = require('namize');
 var template = require('./template');
 
 
+
+
 /**
  * Constructor Function
  *
@@ -27,9 +29,9 @@ function Editor (model) {
 
   this.events = delegates(this.el, this);
   this.events.bind('keyup textarea', 'keypress');
-  
+
   grow(this.textarea);
-  
+
   if (model) {
     this.model = model
     this.load(model);
@@ -38,6 +40,9 @@ function Editor (model) {
   return this;
 }
 Emitter(Editor.prototype);
+
+
+
 
 /**
  * Loads data
@@ -54,6 +59,8 @@ Editor.prototype.load = function (model) {
 }
 
 
+
+
 /**
  * Handles editor keypress events
  *
@@ -68,6 +75,7 @@ Editor.prototype.keypress = function(e) {
   this.model.content(parsed.content);
   this.model.save();
 }
+
 
 
 
@@ -90,6 +98,8 @@ Editor.prototype.parse = function() {
 }
 
 
+
+
 /**
  * Parses a hash entry
  *
@@ -108,6 +118,8 @@ Editor.prototype.parseHash = function(hash) {
   result = result.replace(/\ /g, '-');
   return result;
 }
+
+
 
 
 function titleize (string) {

@@ -9,6 +9,8 @@ var Hashes = require('hash').Collection;
 var MainView = require('main-view');
 
 
+
+
 /*!
  * # Private Variables
  */
@@ -16,6 +18,8 @@ var MainView = require('main-view');
 var hashes;
 var mainView;
 var data;
+
+
 
 
 /**
@@ -26,6 +30,8 @@ page('*', init);
 page('/', index);
 page('/hash/:hash', hash);
 page();
+
+
 
 
 /*!
@@ -43,6 +49,8 @@ function init(ctx, next) {
 }
 
 
+
+
 /**
  * Index
  *
@@ -54,6 +62,8 @@ function init(ctx, next) {
 function index(ctx, next) {
   // body...
 }
+
+
 
 
 /**

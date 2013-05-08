@@ -10,6 +10,8 @@ var Collection = require('collection');
 var store = require('store');
 
 
+
+
 /**
  * Constructor
  *
@@ -24,11 +26,15 @@ function Hashes (models) {
 }
 
 
+
+
 /**
  * Mixins
  */
 
 Emitter(Collection.prototype);
+
+
 
 
 /**
@@ -38,7 +44,6 @@ Emitter(Collection.prototype);
  * @return {Type}
  * @api public
  */
-
 
 Collection.prototype.add = function (data) {
   var self = this;
@@ -52,6 +57,8 @@ Collection.prototype.add = function (data) {
 }
 
 
+
+
 /**
  * Removes a model from the collection
  *
@@ -60,11 +67,12 @@ Collection.prototype.add = function (data) {
  * @api public
  */
 
-
 Collection.prototype.remove = function (index) {
   var items = this.models.splice(index, arguments[1] || 1);
   this.emit('remove', items);
 }
+
+
 
 
 /**
@@ -89,6 +97,8 @@ Collection.prototype.fetch = function() {
 }
 
 
+
+
 /**
  * Find a Model by tag
  *
@@ -97,7 +107,7 @@ Collection.prototype.fetch = function() {
  * @api public
  */
 
-  Collection.prototype.findByTag = function (tag) {
+Collection.prototype.findByTag = function (tag) {
   var result;
   if (typeof tag === 'string') {
     result = this.find(function(model) {
@@ -106,6 +116,8 @@ Collection.prototype.fetch = function() {
   }
   return result;
 }
+
+
 
 
 /**
@@ -121,6 +133,7 @@ Collection.prototype.setActiveHash = function (model) {
   this.activeHash = model;
   this.activeHash.active(true);
 }
+
 
 
 

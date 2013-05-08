@@ -11,6 +11,8 @@ var template = require('./template.js');
 var classes = require('classes');
 
 
+
+
 /*!
  * Private Variables
  */
@@ -18,6 +20,8 @@ var classes = require('classes');
 var tmpl = domify(template)[0];
 var el = tmpl.cloneNode(true);
 var active;
+
+
 
 
 /**
@@ -42,6 +46,8 @@ function HashList(collection) {
 }
 
 
+
+
 /**
  * Add Item
  *
@@ -59,6 +65,7 @@ function add(model) {
 
 
 
+
 /**
  * Remove Item
  *
@@ -68,17 +75,16 @@ function add(model) {
  */
 
 function remove(model) {
-
   if (type(model) === 'array') {
     model.forEach(remove);
   }
-
   else {
     var itemView = model.listItemView;
     itemView.parentNode.removeChild(itemView);
   }
-
 }
+
+
 
 
 /**
@@ -94,6 +100,8 @@ reactive.bind('data-active', function(el, name){
     }
   });
 });
+
+
 
 
 /**

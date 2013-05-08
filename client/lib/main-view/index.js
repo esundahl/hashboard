@@ -11,6 +11,8 @@ var template = require('./template.js');
 var domify = require('domify');
 
 
+
+
 /**
  * Private Variables
  */
@@ -19,6 +21,8 @@ var el = domify(template)[0];
 var searchField;
 var hashList;
 var editor;
+
+
 
 
 /**
@@ -55,6 +59,8 @@ function MainView(collection) {
 }
 
 
+
+
 /**
  * Load a hash
  *
@@ -67,6 +73,8 @@ MainView.prototype.load = function(model) {
   searchField.set(model.tag(), true);
   editor.load(model);
 }
+
+
 
 
 /**

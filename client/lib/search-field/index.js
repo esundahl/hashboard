@@ -10,6 +10,8 @@ var Emitter = require('emitter');
 var delegates = require('delegates');
 
 
+
+
 /**
  * Constructor
  *
@@ -23,11 +25,13 @@ function SearchField(collection) {
   this.input = this.el.querySelector('input');
 
   this.events = delegates(this.el, this);
-  this.events.bind('keyup input', 'keyup');
+  this.events.bind('keydown input', 'keydown');
 
   return this;
 }
 Emitter(SearchField.prototype);
+
+
 
 
 /**
@@ -50,6 +54,8 @@ SearchField.prototype.set = function(value, placeholder) {
   }
 
 }
+
+
 
 
 /**

@@ -71,21 +71,26 @@ SearchField.prototype.placeholder = function (value) {
 }
 
 
+
+
 /**
- * Keyup Event
+ * Submit event
  *
- * @param {Type} name
+ * @param {Event} e
  * @return {Type}
  * @api public
  */
 
-SearchField.prototype.keyup = function (e) {
-  this.emit('keyup', e);
-}
+SearchField.prototype.keydown = function(e) {
+  if (e.keyCode !== 13) return;
+  this.emit('submit', this.input.value);
+};
+
+
+
 
 /**
  * Exports
  */
 
 module.exports = SearchField;
-

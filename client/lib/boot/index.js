@@ -6,6 +6,7 @@
 
 var page = require('page');
 var Hashes = require('hash').Collection;
+var Hash = require('hash').Model;
 var MainView = require('main-view');
 
 
@@ -43,7 +44,7 @@ page();
 
 function init(ctx, next) {
   hashes = hashes || new Hashes(data).fetch();
-  mainView = mainView || new MainView(hashes);
+  mainView = mainView || new MainView(page, hashes);
   document.body.appendChild(mainView.el);
   next();
 }
@@ -75,6 +76,9 @@ function index(ctx, next) {
 
 function hash(ctx, next) {
   var activeModel = hashes.findByTag(ctx.params.hash);
+  if (!activeModel) {
+    activeModel = hashes.add({ tag: ctx.params.hash, content: '' });
+  }
   mainView.load(activeModel);
   hashes.setActiveHash(activeModel);
 }

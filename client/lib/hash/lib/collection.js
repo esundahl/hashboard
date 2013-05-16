@@ -54,6 +54,7 @@ Collection.prototype.add = function (data) {
   hash.save();
   this.push(hash);
   this.emit('add', hash);
+  return hash;
 }
 
 

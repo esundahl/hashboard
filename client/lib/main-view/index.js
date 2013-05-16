@@ -33,7 +33,9 @@ var editor;
  * @api public
  */
 
-function MainView(collection) {
+function MainView(page, collection) {
+
+  var self = this;
 
   // Initialize SubViews
   hashList = new HashList(collection);
@@ -41,9 +43,8 @@ function MainView(collection) {
   editor = new Editor();
 
   // Bind Events
-  searchField.on('keyup', function(e) {
-    var val = e.srcElement.value;
-    
+  searchField.on('submit', function(e) {
+    page('/hash/' + e);
   });
 
   // Append SubViews

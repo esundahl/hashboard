@@ -11,7 +11,7 @@
   },
   "developer": {
     "name": "Erik Sundahl",
-    "url": "https://github.com/esundahl/hashboard"
+    "url": "http://dev:3000/"
   },
   "installs_allowed_from": ["*"],
   "default_locale": "en"

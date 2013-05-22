@@ -1,0 +1,15 @@
+{
+  "name": "hash-collection",
+  "description": "collection component for hash models",
+  "dependencies": {
+    "component/emitter": "*",
+    "component/collection": "*",
+    "marcuswestin/store.js": "*"
+  },
+  "development": {},
+  "local": ["hash-model", "fake-api"],
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

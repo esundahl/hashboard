@@ -1,0 +1,10 @@
+{
+  "name": "fake-api",
+  "description": "fake api for hash models",
+  "dependencies": {},
+  "development": {},
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

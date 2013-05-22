@@ -1,0 +1,14 @@
+{
+  "name": "hash-model",
+  "description": "Hash data model",
+  "dependencies": {
+    "component/model": "*",
+    "retrofox/namize": "*",
+    "marcuswestin/store.js": "*"
+  },
+  "development": {},
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

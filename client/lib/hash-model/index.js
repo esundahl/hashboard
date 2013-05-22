@@ -19,7 +19,7 @@ var store = require('store');
  * @api public
  */
 
-var Hash = model('Hash') 
+var Hash = model('Hash')
   .attr('id')
   .attr('active')
   .attr('tag')

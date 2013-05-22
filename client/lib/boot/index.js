@@ -5,8 +5,8 @@
  */
 
 var page = require('page');
-var Hashes = require('hash').Collection;
-var Hash = require('hash').Model;
+var Hashes = require('hash-collection');
+var Hash = require('hash-model');
 var MainView = require('main-view');
 
 

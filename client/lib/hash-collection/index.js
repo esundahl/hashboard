@@ -4,7 +4,7 @@
  * Dependencies
  */
 
-var Hash = require('./model.js');
+var Hash = require('hash-model');
 var Emitter = require('emitter');
 var Collection = require('collection');
 var store = require('store');

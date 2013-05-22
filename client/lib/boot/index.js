@@ -79,6 +79,7 @@ function hash(ctx, next) {
   if (!activeModel) {
     activeModel = hashes.add({ tag: ctx.params.hash, content: '' });
   }
+
   mainView.load(activeModel);
   hashes.setActiveHash(activeModel);
 }

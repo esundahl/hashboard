@@ -8,3 +8,4 @@ rethinkdb_data/
 hashed.md
 client/lib/hash-list/template.js
 server/public/app.css
+npm-debug.log

@@ -120,6 +120,17 @@ Editor.prototype.parseHash = function(hash) {
 }
 
 
+/**
+ * focus on the the editor
+ *
+ * @api public
+ */
+
+Editor.prototype.focus = function() {
+  this.el.querySelector('textarea').focus();
+};
+
+
 
 
 function titleize (string) {

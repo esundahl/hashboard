@@ -25,7 +25,7 @@ function SearchField(collection) {
   this.input = this.el.querySelector('input');
 
   this.events = delegates(this.el, this);
-  this.events.bind('keydown input', 'keydown');
+  this.events.bind('keyup input', 'keyup');
 
   return this;
 }
@@ -61,13 +61,13 @@ SearchField.prototype.set = function(value, placeholder) {
 /**
  * Placeholder
  *
- * @param {Type} 
+ * @param {Type}
  * @return {Type}
  * @api public
  */
 
 SearchField.prototype.placeholder = function (value) {
-  this.el.querySelector('input').placeholder = value;
+  this.input.placeholder = value;
 }
 
 
@@ -81,9 +81,26 @@ SearchField.prototype.placeholder = function (value) {
  * @api public
  */
 
-SearchField.prototype.keydown = function(e) {
+SearchField.prototype.keyup = function(e) {
+  this.parse();
   if (e.keyCode !== 13) return;
   this.emit('submit', this.input.value);
+};
+
+
+
+
+/**
+ * Parse input
+ *
+ * @param {Type} name
+ * @return {Type}
+ * @api public
+ */
+
+SearchField.prototype.parse = function () {
+  this.input.value = this.input.value.toLowerCase();
+  this.input.value = this.input.value.replace(' ', '-');
 };
 
 

@@ -1,5 +1,5 @@
 
-build: components index.js
+build: components
 	@component build --dev -o ../server/public -n app
 
 components: component.json

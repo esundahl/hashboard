@@ -1,15 +1,7 @@
 {
   "name": "hashboard",
-  "description": "hash app client component",
-  "dependencies": {},
-  "development": {
-    "component/live-css": "*"
-  },
   "paths": ["lib"],
   "local": ["boot"],
-  "scripts": [
-    "index.js"
-  ],
   "styles": [
     "style.css"
   ]

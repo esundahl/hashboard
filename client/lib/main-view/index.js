@@ -73,7 +73,7 @@ function MainView(page, collection) {
 MainView.prototype.load = function(model) {
   searchField.set(model.tag(), true);
   editor.focus();
-  editor.load(model);
+  editor.loadHashModel(model);
 }
 
 

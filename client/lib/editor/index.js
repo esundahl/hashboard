@@ -45,14 +45,14 @@ Emitter(Editor.prototype);
 
 
 /**
- * Loads data
+ * Loads data from a hash model
  *
  * @param {String} content
  * @return {Type}
  * @api public
  */
 
-Editor.prototype.load = function (model) {
+Editor.prototype.loadHashModel = function (model) {
   this.model = model;
   this.textarea.value = '# ' + model.titleize() + '\n\n' + model.content();
   this.emit('load', this.el.value);
